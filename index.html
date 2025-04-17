@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PA' MI CASA - Tienda Online</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="logo.png" />
-  <script defer src="scripts.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.png">
 </head>
 <body>
 
-  <header class="header">
+  <!-- Header -->
+  <div class="header">
     <div class="logo">
-      <img src="logo.png" alt="Logo" />
+      <img src="logo.png" alt="Logo">
       <span>PA' MI CASA</span>
     </div>
 
-    <div class="header-actions">
-      <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-      <a href="carrito.html" class="carrito-icon">🛒</a>
-    </div>
-  </header>
+    <!-- Botón de menú lateral -->
+    <button id="menu-toggle" class="menu-toggle">☰</button>
 
-  <aside class="sidebar" id="sidebar">
+    <!-- Icono del carrito -->
+    <div class="carrito" onclick="window.location.href='carrito.html'">🛒</div>
+  </div>
+
+  <!-- Menú lateral -->
+  <div class="sidebar" id="sidebar">
     <h3>Categorías</h3>
-    <ul>
-      <li onclick="filtrarSubcategoria('Televisores')">Televisores</li>
-      <li onclick="filtrarSubcategoria('Refrigeradoras')">Refrigeradoras</li>
-      <li onclick="filtrarSubcategoria('Cocinas')">Cocinas</li>
-      <li onclick="filtrarSubcategoria('Ventiladores')">Ventiladores</li>
-    </ul>
-  </aside>
+    <div id="submenu">
+      <!-- Botones de categorías o subcategorías se insertan aquí dinámicamente o manual -->
+      <button onclick="filtrarSubcategoria('Televisores')">Televisores</button>
+      <button onclick="filtrarSubcategoria('Cocina')">Cocina</button>
+      <button onclick="filtrarSubcategoria('Refrigeradoras')">Refrigeradoras</button>
+      <button onclick="filtrarSubcategoria('Lavadoras')">Lavadoras</button>
+      <button onclick="filtrarSubcategoria('Aire Acondicionado')">Aire Acondicionado</button>
+      <button onclick="filtrarSubcategoria('Ventiladores')">Ventiladores</button>
+    </div>
+  </div>
 
-  <main class="main-content">
-    <input type="text" id="buscador" placeholder="Buscar productos..." />
-    <div id="productos-container"></div>
-  </main>
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <input type="text" id="buscador" placeholder="Buscar productos...">
+    <div id="productos-container">
+      <!-- Productos se renderizan aquí -->
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="scripts.js"></script>
 
 </body>
 </html>
