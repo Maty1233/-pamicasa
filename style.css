@@ -1,4 +1,4 @@
-/* RESET Y BASE */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -6,23 +6,22 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #f9f9f9;
   color: #222;
 }
 
-/* HEADER FIJO */
+/* HEADER */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #1d2d44; /* Azul oscuro del logo */
-  color: white;
-  padding: 12px 20px;
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 15px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -31,8 +30,8 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 20px;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .logo img {
@@ -40,91 +39,94 @@ body {
   height: 40px;
 }
 
-/* BOTONES HEAD */
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
+/* BOTÓN MENÚ */
 .menu-toggle {
-  background: none;
-  color: white;
   font-size: 24px;
+  background-color: transparent;
   border: none;
+  color: #fff;
   cursor: pointer;
 }
 
-.carrito-icon {
+/* ICONO CARRITO */
+.carrito {
   font-size: 24px;
-  color: white;
-  text-decoration: none;
+  cursor: pointer;
 }
 
 /* SIDEBAR */
 .sidebar {
   position: fixed;
-  top: 60px;
-  left: 0;
+  top: 60px; /* debajo del header */
+  left: -240px;
   width: 220px;
-  height: calc(100% - 60px);
-  background-color: #f0f4f8;
-  border-right: 1px solid #ccc;
+  height: 100%;
+  background-color: #fff;
   padding: 20px;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-  z-index: 900;
+  border-right: 1px solid #ddd;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0;
 }
 
 .sidebar h3 {
   margin-bottom: 15px;
-  color: #1d2d44;
+  color: #1e1e1e;
 }
 
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar li {
+.sidebar button {
+  display: block;
+  width: 100%;
   padding: 10px;
-  border-radius: 4px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  color: #333;
+  font-size: 15px;
   cursor: pointer;
-  color: #1d2d44;
+  border-radius: 4px;
+  transition: background 0.2s;
 }
 
-.sidebar li:hover {
-  background-color: #dbe9f4;
+.sidebar button:hover {
+  background-color: #f3f3f3;
 }
 
 /* CONTENIDO PRINCIPAL */
 .main-content {
+  margin-top: 80px;
+  padding: 20px;
+  margin-left: 0;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.open ~ .main-content {
   margin-left: 240px;
-  padding: 100px 20px 20px 20px;
 }
 
 /* BUSCADOR */
 #buscador {
   width: 100%;
   padding: 10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
-  border-radius: 6px;
+  font-size: 15px;
 }
 
-/* PRODUCTOS */
-#productos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-}
-
+/* PRODUCTO */
 .producto {
-  background-color: white;
-  padding: 15px;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
   text-align: center;
-  transition: 0.2s;
 }
 
 .producto:hover {
@@ -133,42 +135,43 @@ body {
 
 .producto img {
   max-width: 100%;
+  height: auto;
   border-radius: 6px;
-}
-
-.producto h2 {
-  margin: 10px 0 5px;
-  font-size: 18px;
-}
-
-.producto p {
   margin-bottom: 10px;
 }
 
+.producto h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.producto p {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
 .producto button {
-  background-color: #0077cc;
-  color: white;
+  padding: 8px 15px;
   border: none;
-  padding: 8px 14px;
-  border-radius: 4px;
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .producto button:hover {
-  background-color: #005fa3;
+  background-color: #e03e00;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .sidebar {
-    transform: translateX(-100%);
+    top: 60px;
+    height: calc(100% - 60px);
   }
 
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
-  .main-content {
+  .sidebar.open ~ .main-content {
     margin-left: 0;
   }
 }
