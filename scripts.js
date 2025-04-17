@@ -69,3 +69,8 @@ function agregarAlCarrito(nombre, precio, imagen) {
 menuToggle.addEventListener('click', () => {
   sidebar.classList.toggle('open');
 });
+
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+});
+
