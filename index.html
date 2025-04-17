@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PA' MI CASA - Tienda Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logo.png" />
+  <script defer src="scripts.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="Logo" />
+      <span>PA' MI CASA</span>
+    </div>
+
+    <div class="header-actions">
+      <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+      <a href="carrito.html" class="carrito-icon">🛒</a>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <h3>Categorías</h3>
+    <ul>
+      <li onclick="filtrarSubcategoria('Televisores')">Televisores</li>
+      <li onclick="filtrarSubcategoria('Refrigeradoras')">Refrigeradoras</li>
+      <li onclick="filtrarSubcategoria('Cocinas')">Cocinas</li>
+      <li onclick="filtrarSubcategoria('Ventiladores')">Ventiladores</li>
+    </ul>
+  </aside>
+
+  <main class="main-content">
+    <input type="text" id="buscador" placeholder="Buscar productos..." />
+    <div id="productos-container"></div>
+  </main>
+
+</body>
+</html>
